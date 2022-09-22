@@ -22,17 +22,20 @@ void Main_Menu_Update()
 	CP_TEXT_ALIGN_HORIZONTAL horizontal = rectx;
 	CP_TEXT_ALIGN_VERTICAL vertical = recty;
 	int mousex = CP_Input_GetMouseX;
-		int mousey = CP_Input_GetMouseY;
+	int mousey = CP_Input_GetMouseY;
 	CP_Color Red = CP_Color_CreateHex(0xFF0000FF);
 	CP_Color White = CP_Color_CreateHex(0xFFFFFFFF);
 	CP_Color Green = CP_Color_CreateHex(0x00FF00FF);
-	typedef struct Button
+	typedef struct ButtonCollide
 	{
 		int x1;
 		int x2;
 		int y1;
 		int y2;
-	} Button1,Button2;
+	} Button;
+
+	Button Startbutton, Exitbutton;
+	Startbutton.x1 = rectx;
 	
 	
 	
