@@ -35,7 +35,10 @@ void Main_Menu_Update()
 	} Button;
 
 	Button Startbutton, Exitbutton;
-	Startbutton.x1 = rectx;
+	Startbutton.x1 = rectx - 10;
+	Startbutton.y1 = recty - 10;
+	Startbutton.x2 = rectx + 10;
+	Startbutton.y2 = recty + 10;
 	
 	
 	
@@ -57,12 +60,18 @@ void Main_Menu_Update()
 	CP_Settings_TextAlignment(horizontal, vertical);
 	CP_Font_DrawText("Exit", rectx, recty + 110);
 	CP_Graphics_ClearBackground(CP_Color_Create(0, 60, 60, 0));
-
-	if (CP_Input_MouseClicked())
+	if (mousex > Startbutton.x1 && mousex > Startbutton.x1)
 	{
-		
-		CP_Engine_SetNextGameState(Car_Level_Init, Car_Level_Update, Car_Leve_Exit);
-	} 
+		if (mousey > Startbutton.y1 && mousey > Startbutton.y1)
+		{
+			if (CP_Input_MouseClicked())
+			{
+
+				CP_Engine_SetNextGameState(Car_Level_Init, Car_Level_Update, Car_Leve_Exit);
+			}
+		}
+	}
+	
 }
 
 void Main_Menu_Exit()
