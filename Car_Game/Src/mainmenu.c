@@ -1,8 +1,8 @@
 #include "cprocessing.h"
 #include "carlevel.h"
+#include "utils.h"
 
 float textsize;
-float Play;
 float rectx;
 float recty;
 
@@ -21,24 +21,11 @@ void Main_Menu_Update()
 {
 	CP_TEXT_ALIGN_HORIZONTAL horizontal = rectx;
 	CP_TEXT_ALIGN_VERTICAL vertical = recty;
-	int mousex = CP_Input_GetMouseX;
-	int mousey = CP_Input_GetMouseY;
+	float mousex = CP_Input_GetMouseX();
+	float mousey = CP_Input_GetMouseY();
 	CP_Color Red = CP_Color_CreateHex(0xFF0000FF);
 	CP_Color White = CP_Color_CreateHex(0xFFFFFFFF);
 	CP_Color Green = CP_Color_CreateHex(0x00FF00FF);
-	typedef struct ButtonCollide
-	{
-		int x1;
-		int x2;
-		int y1;
-		int y2;
-	} Button;
-
-	Button Startbutton, Exitbutton;
-	Startbutton.x1 = rectx - 10;
-	Startbutton.y1 = recty - 10;
-	Startbutton.x2 = rectx + 10;
-	Startbutton.y2 = recty + 10;
 	
 	
 	
@@ -60,16 +47,23 @@ void Main_Menu_Update()
 	CP_Settings_TextAlignment(horizontal, vertical);
 	CP_Font_DrawText("Exit", rectx, recty + 110);
 	CP_Graphics_ClearBackground(CP_Color_Create(0, 60, 60, 0));
-	if (mousex > Startbutton.x1 && mousex > Startbutton.x1)
+	// start button collider
+	if (CP_Input_MouseClicked())
 	{
-		if (mousey > Startbutton.y1 && mousey > Startbutton.y1)
+		if (IsAreaClicked(rectx, recty, 200.0f, 50.0f, mousex, mousey))
 		{
-			if (CP_Input_MouseClicked())
-			{
-
-				CP_Engine_SetNextGameState(Car_Level_Init, Car_Level_Update, Car_Leve_Exit);
-			}
+			CP_Engine_SetNextGameState(Car_Level_Init, Car_Level_Update, NULL);
 		}
+		
+	}
+	// exit button collider
+	if (CP_Input_MouseClicked())
+	{
+		if (IsAreaClicked(rectx, recty + 100, 200.0f, 50.0f, mousex, mousey))
+		{
+			CP_Engine_Terminate();
+		}
+
 	}
 	
 }
