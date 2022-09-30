@@ -19,7 +19,7 @@ int IsCircleClicked(float circle_center_x, float circle_center_y, float diameter
 {
 	float radius = diameter / 2;
 	float pythagorasD = CP_Math_Square(click_x - circle_center_x) + CP_Math_Square(click_y - circle_center_y);
-	int D = sqrt(pythagorasD);
+	double D = sqrt(pythagorasD);
 	//check if distance < radius
 		if (D < radius)
 		{
