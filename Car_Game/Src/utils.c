@@ -1,3 +1,14 @@
+/*!
+@file       utils.c
+@author     Muhammad Zikry bin zakaria (muhammadzikry.b)
+@course     CSD1401
+@section    Section B
+@tutorial   Car level
+@date       23/09/2022
+@brief      This file contains a collection of function that detects if the car or
+			button is clicked
+*//*__________________________________________________________________*/
+
 #include "cprocessing.h"
 #include "math.h"
 

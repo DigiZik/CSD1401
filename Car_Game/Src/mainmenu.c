@@ -1,3 +1,13 @@
+/*!
+@file       mainmenu.c
+@author     Muhammad Zikry bin zakaria (muhammadzikry.b)
+@course     CSD1401
+@section    Section B
+@tutorial   Car level
+@date       23/09/2022
+@brief      This file contains a collection of function that programs main menu state
+*//*__________________________________________________________________*/
+
 #include "cprocessing.h"
 #include "carlevel.h"
 #include "utils.h"
